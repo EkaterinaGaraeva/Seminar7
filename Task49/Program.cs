@@ -41,14 +41,11 @@ void Print2DArray(int[,] arrayToPrint)
 
 int[,] FindEvenElements(int[,] arrayToFind)
 {
-    for (int i = 0; i < arrayToFind.GetLength(0); i++)
+    for (int i = 0; i < arrayToFind.GetLength(0); i += 2)
     {
-        for (int j = 0; j < arrayToFind.GetLength(1); j++)
+        for (int j = 0; j < arrayToFind.GetLength(1); j += 2)
         {
-            if (i != 0 && j != 0 && (i - 1) % 2 == 0 && (j - 1) % 2 == 0)
-            {
-                arrayToFind[i,j] = arrayToFind[i,j] * arrayToFind[i,j];
-            }
+            arrayToFind[i,j] *= arrayToFind[i,j];
         }
     }
     return arrayToFind;
