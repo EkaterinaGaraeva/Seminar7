@@ -36,7 +36,7 @@ void Print2DArray(int[,] arrayToPrint)
 int FindSumOfElements(int[,] arrayToFind)
 {
     int sumOfElements = 0;
-    int length = (arrayToFind.GetLength(0) > arrayToFind.GetLength(1) ? arrayToFind.GetLength(1) : arrayToFind.GetLength(0));
+    int length = (arrayToFind.GetLength(0) > arrayToFind.GetLength(1)) ? arrayToFind.GetLength(1) : arrayToFind.GetLength(0);
     /*
     if (arrayToFind.GetLength(0) > arrayToFind.GetLength(1))
     {
