@@ -16,15 +16,15 @@
 
 int[,] Generate2DArray(int higth, int weigth, int delta)
 {
-    int[,] array2D = new int[higth, weigth];
+    int[,] _return = new int[higth, weigth];
     for (int i = 0; i < higth; i++)
     {
         for (int j = 0; j < weigth; j++)
         {
-            array2D[i, j] = new Random().Next(delta * -1, delta);
+            _return[i, j] = new Random().Next(delta * -1, delta);
         }
     }
-    return array2D;
+    return _return;
 }
 
 void Print2DArray(int[,] arrayToPrint)
@@ -33,7 +33,7 @@ void Print2DArray(int[,] arrayToPrint)
     {
         for (int j = 0; j < arrayToPrint.GetLength(1); j++)
         {
-            Console.Write($"{arrayToPrint}\t");
+            Console.Write($"{arrayToPrint[i,j]}\t");
         }
         Console.WriteLine();
     }
@@ -45,7 +45,7 @@ int[,] FindEvenElements(int[,] arrayToFind)
     {
         for (int j = 0; j < arrayToFind.GetLength(1); j++)
         {
-            if (i % 2 == 0 && j % 2 == 0)
+            if (i != 0 && j != 0 && (i - 1) % 2 == 0 && (j - 1) % 2 == 0)
             {
                 arrayToFind[i,j] = arrayToFind[i,j] * arrayToFind[i,j];
             }
