@@ -27,7 +27,7 @@ void Print2DArray(int[,] arrayToPrint)
     {
         for (int j = 0; j < arrayToPrint.GetLength(1); j++)
         {
-            Console.Write($"{arrayToPrint[i,j]}\t");
+            Console.Write($"{arrayToPrint[i, j]}\t");
         }
         Console.WriteLine();
     }
@@ -36,20 +36,25 @@ void Print2DArray(int[,] arrayToPrint)
 int FindSumOfElements(int[,] arrayToFind)
 {
     int sumOfElements = 0;
-    Console.Write("Сумма элементов главной диагонали: ");
-    for (int i = 0; i < arrayToFind.GetLength(0); i++)
+    int length = (arrayToFind.GetLength(0) > arrayToFind.GetLength(1) ? arrayToFind.GetLength(1) : arrayToFind.GetLength(0));
+    /*
+    if (arrayToFind.GetLength(0) > arrayToFind.GetLength(1))
     {
-        for (int j = 0; j < arrayToFind.GetLength(1); j++)
+        length = arrayToFind.GetLength(1);
+    }
+    else
+    {
+        length = arrayToFind.GetLength(0);
+    }
+    */
+    Console.Write("Сумма элементов главной диагонали: ");
+    for (int i = 0; i < length; i++)
+    {
+        sumOfElements += arrayToFind[i, i];
+        Console.Write(arrayToFind[i, i]);
+        if (i < length - 1)
         {
-            if (i == j)
-            {
-                sumOfElements += arrayToFind[i,j];
-                Console.Write(arrayToFind[i,j]);
-                if (i < arrayToFind.GetLength(0) - 1 && j < arrayToFind.GetLength(1) - 1)
-                {
-                    Console.Write(" + ");
-                }
-            }
+            Console.Write(" + ");
         }
     }
     return sumOfElements;
